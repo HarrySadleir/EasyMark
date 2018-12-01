@@ -1,8 +1,19 @@
 class Student {
   ArrayList<Course> studentCourses = new ArrayList<Course>();
-  int studentNumber;
+  String name;
+  ArrayList<Mark> studentMarks = new ArrayList<Mark>();
 
-  Student(int studentNumber_) {
-    studentNumber = studentNumber_;
+  Student(String name_) {
+    name = name_;
+  }
+
+  void updateMarks() {
+    for (Course c : studentCourses) {
+      for (Mark m : c.courseMarks) {
+        if (m.markStudent.equals(this)) {
+          studentMarks.add(m);
+        }
+      }
+    }
   }
 }
